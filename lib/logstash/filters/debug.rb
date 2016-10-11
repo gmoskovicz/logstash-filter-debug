@@ -9,9 +9,13 @@ class LogStash::Filters::Debug < LogStash::Filters::Base
   config_name "debug"
 
   # Custom message to print before printing the event.
+  # Examples:
+  # 1. To get a field from the event #{event.sprintf('%{status}')} 
+  # 2. Any string to be added in the message
+  # 3. Defaults to Message Coming 
   config :logmessage, :validate => :string, :required => false, :default => "Message coming"
 
-  # Log level to use to log: "WARN", "DEBUG" or "INFO"
+  # Log level to use to log: "WARN", "DEBUG" or "INFO". Default is WARN
   config :loglevel, :validate => :string, :required => false, :default => "WARN"
 
   def register()
