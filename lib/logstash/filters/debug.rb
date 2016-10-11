@@ -22,9 +22,7 @@ class LogStash::Filters::Debug < LogStash::Filters::Base
   end
 
   def filter(event)
-    if loglevel == "WARN" 
-      @logger.warn(logmessage, :event => event.to_hash)
-    elsif loglevel == "DEBUG" 
+    if loglevel == "DEBUG" 
       @logger.debug(logmessage, :event => event.to_hash)
     elsif loglevel == "INFO"
       @logger.info(logmessage, :event => event.to_hash)
